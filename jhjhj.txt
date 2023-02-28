@@ -1,0 +1,39 @@
+<?php
+session_start();
+include('../dbconn.php');
+
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
+$income=$_POST['income']
+$pic1 = $_POST['pic1'];
+$pic2 = $_POST['pic2'];
+$pic3 = $_POST['pic3'];
+$pic4= $_POST['pic4'];
+
+
+//This is the directory where images will be saved 
+$target = "upload/"; 
+$target = $target . basename( $_FILES['photo']['name']); 
+
+//This gets all the other information from the form 
+$pic1 = ($_FILES['photo']['name']); 
+$pic2 = ($_FILES['photo']['name']); 
+$pic3 = ($_FILES['photo']['name']); 
+$pic4 = ($_FILES['photo']['name']); 
+
+
+//Writes the photo to the server 
+if (move_uploaded_file($_FILES['photo']['tmp_name'], $target)) { 
+    //Tells you if its all ok 
+    echo "The file ". basename( $_FILES['uploadedfile']['name']). " has been uploaded, and your information has been added to the directory"; 
+} else { 
+    //Gives an error if its not 
+    echo "Sorry, there was a problem uploading your file.";
+} 
+
+mysql_query("INSERT INTO member(fname, lname, gender, address, contact, picture, username, password, skype, email, photo)VALUES('$fname', '$lname', '$mname', '$address', '$contact', '$pic', '$username', '$password', '$skype', '$email', '$pic')");
+
+header("location: index.php?remarks=success");
+mysql_close($con);
+
+?>
