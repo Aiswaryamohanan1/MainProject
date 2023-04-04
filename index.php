@@ -1,79 +1,187 @@
+<?php
+include "../dbconn.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>DEPARTMENT OF LAND REVENUE</title>
+    <style>
+        #admin-heading {
+  display: inline;
+  
+}
+
+        </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="styles.css">
+    <title>Admin panel</title>
 </head>
+
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">E-TALUK</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h2>E-Taluk</h2>
+               
+                
+               
+</div>
+                
+           <!-- <div class="search">
+                <a href="phpSearch.php">
+                <input type="text" name="search" placeholder="search here">
+                <label for="search"><i class="fas fa-search"></i></label>
+            </div>-->
+            
+                
+         
+           <!-- <div class="search">
+                <a href="phpSearch.php">
+                <input type="text" name="search" placeholder="search here">
+                <label for="search"><i class="fas fa-search"></i></label>
+            </div>-->
+           
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+            <h4 id="admin-heading"  style="text-align: right;">Welcome Admin</h4> 
+        </div>
+        <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;">  &nbsp; <a href="..\logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="index.php">
+                        <i class="fas fa-th-large"></i>
+                        <div>Dashboard</div>
+                    </a>
+                
+                <li>
+                    <a href="stafreg.php">
+                        <i class="fas fa-user-graduate"></i>
+                        <div>Register Staff</div>
+                        
+                        
+                    </a>
+                </li>
+                <li>
+                    <a href="alertnoti.php">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <div>Alert User </div>
       
-        <a class="nav-link" href="#">HOME
-           <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href ="#about">ABOUT</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="akogin.php">LOGIN</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="userreg.php">REGISTRATION</a>
-      </li>
-     
+                      
+                    </a>
+</li>
+                    <li>
+                    <a href="survey.php">
+                        <i class="fas fa-users"></i>
+                        <div>Assign Duty</div>
+                    </a>
+                </li>
+              
+                
+                <li>
+                    <a href="viewleave.php">
+                        <i class="fas fa-users"></i>
+                        <div>Course</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="addsubject.php">
+                        <i class="fas fa-chart-bar"></i>
+                        <div>Subjects</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="addclsteacher.php">
+                        <i class="fa fa-info-circle"></i>
+                        <div>Teacher allocation</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="tattendance.php">
+                        <i class="fa fa-info-circle"></i>
+                        <div>Take Attendance</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="tvattendance.php">
+                        <i class="fa fa-info-circle"></i>
+                        <div>View Attendance</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="attendancereport.php">
+                        <i class="fa fa-info-circle"></i>
+                        <div>Attendance Report</div>
+                    </a>
+                </li>
+               
+                <li>
+                    <a href="logout.php">
+                        <i class="fa fa-power-off"></i>
+                        <div>Logout</div>
+                    </a>
+                </li>
+               
+            </ul>
+        </div>
+        <div class="main">
+            <div class="cards">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number"></div>
+                        <div class="card-name">Students</div>
+                        
+                        <br>
+                        
+   
+    <div class="dropdown-content">
+      <a href="sreg.php">Register</a>&nbsp;
       
-    </ul>
-    
-    </form>
-  </div>
-</nav>
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-  <img src="Kerala_Government_Secretariat.jpg" class="d-block w-100" alt="taluk">
-  <div class="carousel-caption d-none d-md-block">
-    <h3>LAND REVENUE DEPARTMENT<br> GOVERNMENT OF KERALA</br></h3>
-</div>
-</div>
-<section class="my-4">
-  <div class="py-4">
-    <h2 id="about">ABOUT</h2>
-</div>
-<section >
-  
-<h2>Revenue eServices</h2>
-<p>Land Revenue is a department having a great reach in the routine life of citizen - be it payment of statutory taxes and fees, getting certificates for various purposes, tackling emergencies and the like. Integrating all the services in a common platform is the need of the hour especially in the pandemic scenario where citizen are forced to confine in their households for longer periods. The Web application is designed to avail revenue services by enjoying the comfort of home. The main highlight of the application is that it is mobile friendly. Citizen can avail the services by registering in the portal. The history of the remittances are digitally saved in the individual logins for future reference avoiding the burden of keeping hardcopies of the same. By this endeavor, department is planning to move into a completely IT enabled service delivery system targeting maximum benefit to the citizen. One small step for the citizen and one giant leap for the department
-</p></section>
-<section>
-<h2>Revenue Land Information System</h2>
-<p>
-ReLIS is a web application devised by Revenue department for enabling online integration with Registration and Survey departments thereby creating an electronically enabled backbone for the effective management of land records in the state. The project was initiated in 2011 and it was revamped in 2015 in order for better integration with all the stakeholder departments.</p>
-</section>
+      
+    </div>
+  </li>
 
-<br>
-<div><h2 ><a href="index.php">HOME</a>
-</h2></div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<!--DROPDOWN ENABLE-->
-<script type="text/javascript" src="js/bootstrap/bootstrap-dropdown.js"></script>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number"></div>
+                        <div class="card-name">Teachers</div><br>
+                        <a href="treg.php">Register</a>&nbsp;
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number"></div>
+                        <div class="card-name">parent</div><br>
+                        <a href="preg.php">Register</a>&nbsp;
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                </div>
+                
+               
+                   
+              
 </body>
+
 </html>
