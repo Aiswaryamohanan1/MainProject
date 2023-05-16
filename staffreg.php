@@ -11,13 +11,13 @@ if(isset($_POST['submit']))
     $street=$_POST["street"];
     $password = $_POST["password"];
     $cpassword=$_POST["cpassword"];
-   // $abc=md5($_POST["password"]);
+   //$abc=md5($_POST["password"]);
      $user_check = "SELECT `typeno` FROM `usertype` WHERE `typename` = 'staff'";
     $user_check_rslt = mysqli_query($conn,$user_check);
     while($row = mysqli_fetch_array($user_check_rslt)){
-        //echo $row['type_id'];
+        //echo $row['typeno'];
     $type = $row['typeno'];
-    $user_reg ="INSERT INTO `staffregg` (`fname`, `lastname`, `mobile`,`email`, `address`,`street`,`password`) VALUES ('$fname','$lastname','$mobile','$email' ,'$address','$street','$abc')";
+    $user_reg ="INSERT INTO `staffregg` (`fname`, `lastname`, `mobile`,`email`, `address`,`street`,`password`) VALUES ('$fname','$lastname','$mobile','$email' ,'$address','$street','$password')";
  
     $user_reg_query = mysqli_query($conn,$user_reg);
     
@@ -25,60 +25,106 @@ if(isset($_POST['submit']))
     if($user_reg_query){
       $reg = "INSERT INTO `u_login`(`email`, `password`, `typeno`) VALUES ('$email','$password','$type')";
       $reg_query = mysqli_query($conn,$reg);
-        echo'<script> alert ("Account created '.$last_id.'");</script>';
-        echo'<script>window.location.href="akogin.php";</script>'; 
+        echo'<script> alert ("Account created '.$fname.'");</script>';
+        echo'<script>window.location.href="../akogin.php";</script>'; 
     }
     }
 }
-?><!doctype html>
-<html lang="en">
-  <head>
-    <style>
-        body
-        {
-            background-image:url('Kerala_Government_Secretariat (1).jpg')
-        }
-    </style>
-    <title>Sign Up 10</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Admin</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 10">
+            <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Admin</a> 
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <link rel="stylesheet" href="css/style.css">
-    
-
-
-<!-- Bootstrap-CSS -->      <link rel="stylesheet" href="css/bootstrap.min.css"     type="text/css" media="all">
-<!-- Index-Page-CSS -->     <link rel="stylesheet" href="css/style.css"         type="text/css" media="all">
-<!-- Gallery-Popup-CSS -->  <link rel="stylesheet" href="css/chocolat.css"      type="text/css" media="all">
-<!-- //Custom-Stylesheet-Links -->
-
-<!-- Web-Fonts -->
-<!-- Body-Font -->   <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' type='text/css'>
-<!-- Logo-Font -->   <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Bree+Serif'        type='text/css'>
-<!-- Link-Font -->   <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Raleway:400,500,600'       type='text/css'>
-<!-- //Web-Fonts -->
-    
+                </button>
+               
+               
+                    
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;">  &nbsp; <a href="..\logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+                   
+        </nav>   
    
-
-    </head>
-    <body class="abc">
-       
     
-  
+    
+
+   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				<li class="text-center">
+        <link rel="stylesheet" href="style.css">
+                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+					</li>
+				
+					
+          <li>
+                        <a   href="index.html"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                    </li>
+                     <li>
+                        <a  class="active-menu" href="staffreg.php"><i class="fa fa-plus fa-3x"></i>Add Staff</a>
+                    </li>
+                    <li>
+                        <a  href="survey.php"><i class="fa fa-qrcode fa-3x"></i>Assign Duty</a>
+                    </li>
+						   <li  >
+                        <a   href="addnoti.php"><i class="fa fa-bar-chart-o fa-3x"></i>Add Notification</a>
+                    </li>	
+                      <li  >
+                        <a  href="viewleave.php"><i class="fa fa-eye fa-3x"></i>View</a>
+                      </li>
+                      <li  >
+                        <a  href="table.php"><i class="fa fa-table fa-3x"></i>Table Places</a>
+                      </li>
+                    	<li>		          
+                        <a  href="viewapp.php"><i class="fa fa-eye-o fa-3x"></i>View Applicarion</a>
+                        <ol>  
+ <li><a href="viewapp.php">Caste</a></li>  
+ <li><a href="viewiapp.php">Income</a></li>  
+ <li><a href="viewpk.php">Pokkuvaravu</a></li>  
+ <li>SQL</li>  
+</ol>  
+                    
+                    </li>	
+                </ul>
+               
+            </div>
             
+        </nav>  
+
+ 
       
-             <!-- <form name="myForm" method="POST" onsubmit="return Validate() && Validatename()  && ValidatePhone() && ValidateEmail() && Validatepassword() && Confirmpass()"> -->
-            <!-- <section class="ftco-section">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 text-center mb-5">
-                            <h2 class="heading-section">Sign Up Form</h2>
-                        </div>
-                    </div> -->
+
+    <body class="abc">
+    
                     <div class="row justify-content-center">
                         <div class="col-lg-10">
                             <div class="wrap d-md-flex">

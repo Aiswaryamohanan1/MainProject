@@ -10,11 +10,11 @@ include("../dbconn.php");
 if(isset($_GET['id']))
 {
  $lid=$_GET['id'];
-  $result=mysqli_query($conn,"UPDATE tbl_leave SET leavestatus='2' where tid=$lid");
+  $result=mysqli_query($conn,"UPDATE tbl_leave SET leavestatus='1' where tid=$lid");
   
 }
 if($result)
 {
-echo "<script>alert('leave details has been removed successfully. Thank you');window.location='viewleave.php';</script>";
+echo "<script>alert('leave details has been accepted successfully. Thank you');window.location='viewleave.php';</script>";
 }
 ?>

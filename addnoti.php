@@ -88,7 +88,7 @@ font-size: 16px;">  &nbsp; <a href="..\logout.php" class="btn btn-danger square-
                         <a  class="active-menu" href="staffreg.php"><i class="fa fa-desktop fa-3x"></i>Add Staff</a>
                     </li>
                     <li>
-                        <a  href="survey.php"><i class="fa fa-qrcode fa-3x"></i>Assign Duty</a>
+                    <a  href="viewapplication.php"><i class="fa fa-eye fa-3x"></i>View</a>
                     </li>
 						   <li  >
                         <a   href="#"><i class="fa fa-bar-chart-o fa-3x"></i>Distribute Salary</a>

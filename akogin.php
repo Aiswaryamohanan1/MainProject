@@ -31,7 +31,7 @@
             <input class="button" type="submit"
                      name="login" value="Sign In">
 
-                     <br>Not an User?<a href="userreg.php">Register Now</a>
+                     <br><a href="forgot.php">Forgot password</a>Not an User?<a href="userreg.php">Register Now</a>
         </div>
     </form>
 </body>
@@ -53,17 +53,17 @@ if(isset($_POST['login'])){
         if($type==3){
             $_SESSION["email"] = $row["email"];
             
-            header("location: adminp\index.html");
+            header("location: userdash.php");
         }
         else if($type==2){
             $_SESSION["email"] = $row["email"];
            
-            header("location:staff\staffdash.php");
+            header("location:..\staffdash.php");
         }
         else if($type==1){
           $_SESSION["email"] = $row["email"];
           
-          header("location:user\userdash.php");
+          header("location: adminindex.php");
       }
       
     

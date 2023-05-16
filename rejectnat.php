@@ -10,7 +10,7 @@ include("dbconn.php");
 if(isset($_GET['id']))
 {
  $lid=$_GET['id'];
-  $result=mysqli_query($conn,"UPDATE tbl_income SET status='Approve' where Iid=$lid");
+  $result=mysqli_query($conn,"UPDATE tbl_nativity SET status='Rejected' where email=$lid");
  }
 if($result)
 {

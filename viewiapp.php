@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
@@ -48,7 +48,7 @@ font-size: 16px;">  &nbsp; <a href="..\logout.php" class="btn btn-danger square-
                         <a  href="stafreg.php"><i class="fa fa-plus fa-3x"></i>Add Staff</a>
                     </li>
                     <li>
-                        <a  href="viewapplication.php"><i class="fa fa-eye fa-3x"></i>View</a>
+                    <a  href="viewapplication.php"><i class="fa fa-eye fa-3x"></i>View</a>
                     </li>
 						   <li  >
                         <a   href="alertpnot.php"><i class="fa fa-bar-chart-o fa-3x"></i>Notification To User</a>
@@ -70,8 +70,7 @@ font-size: 16px;">  &nbsp; <a href="..\logout.php" class="btn btn-danger square-
                         <li><a href="viewnativity.php">Nativity</a></li> 
                        
                        </ol>  
-                    </li>
-                   
+                    </li>	
                 </ul>
                
             </div>
@@ -82,33 +81,115 @@ font-size: 16px;">  &nbsp; <a href="..\logout.php" class="btn btn-danger square-
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Admin Dashboard</h2>   
-                        <h5>Welcome Admin ,Work Well. </h5>
+                     <h2>Table Examples</h2>   
+                        <h5>Welcome Tahasildar </h5>
+                       
                     </div>
-                </div>              
-  
-                    </div>
-                </div>     
-                 <!-- /. ROW  -->           
-    </div>
-             <!-- /. PAGE INNER  -->
-            </div>
-         <!-- /. PAGE WRAPPER  -->
-        </div>
-     <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- METISMENU SCRIPTS -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
-     <!-- MORRIS CHART SCRIPTS -->
-     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="assets/js/morris/morris.js"></script>
-      <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
+                </div>
+                <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                             Income Application
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>         
+               
+           
+       
+        
+          <tr>
+          
+            
+            <th data-breakpoints="xs">SLNO</th>
+            <th>Job</th>
+            <th>First Name</th>
+            <th>Middle name</th>
+            <th>Last Name</th>
+            <th>House Name</th>
+            <th>Place</th>
+            <th>Post</th>
+            <th>PIN</th>
+           
+            <th>Source</th>
+            <th>Email</th>
+            <th>Approve</th>
+            <th>Reject</th>
+            
+          
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-expanded="true">
+          <?php
+include("dbconn.php");
+?>
+<?php
+$s=1;
+
+
+$sql=mysqli_query($conn,"SELECT * from tbl_income where status='Applied'");
+
+
+   while($display=mysqli_fetch_array($sql))
+   {
+      $login=$display['email']; 
+	echo "<tr>";
+	echo"<td>".$s++."</td>";
+    echo "<td>".$display["emp"]."</td>";
+    echo "<td>".$display["fname"]."</td>";
+    echo "<td>".$display["mname"]."</td>";
+    echo "<td>".$display["lname"]."</td>";
+	echo "<td>".$display["hname"]."</td>";
+    echo "<td>".$display["place"]."</td>";
+    echo "<td>".$display["post"]."</td>";
+    echo "<td>".$display["pin"]."</td>";
+
+    echo "<td>".$display["source"]."</td>";
+   
+    echo "<td>".$display["email"]."</td>";
+
+    
+	?>
+     <td><button class="btn btn-primary" ><a href="approvei.php?id=<?php echo $display['Iid'];?>"style="color:white;">Approve</a></button> </td>
+     <td><button class="btn btn-danger" ><a href="rejecti.php?id=<?php echo $display['Iid'];?>"style="color:white;">Reject</a></button> </td>
     
    
+
+	<?php
+	echo "</tr>";
+	
+  }
+
+echo "</table>";
+
+?>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+</section>
+ <!-- footer -->
+		  
+  <!-- / footer -->
+</section>
+
+<!--main content end-->
+</section>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/jquery.slimscroll.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+<script src="js/jquery.scrollTo.js"></script>
 </body>
 </html>
